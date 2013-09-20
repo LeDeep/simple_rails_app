@@ -1,5 +1,5 @@
 SimpleRailsApp::Application.routes.draw do
-  resources :programs, only: [:new, :create, :index, :edit, :destroy]
+  resources :programs, only: [:new, :create, :index, :edit, :destroy, :update]
 
   root :to => 'programs#index'
 

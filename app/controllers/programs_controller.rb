@@ -17,4 +17,19 @@ class ProgramsController < ApplicationController
       render :new
     end
   end
+
+  def edit 
+    @program = Program.find(params[:id])
+  end
+
+  def update
+    @program = Program.find(params[:id])
+
+    if @program.update_attributes(:id => params[:id])
+      redirect_to programs_path
+    else
+      render :edit
+    end
+  end
+
 end
