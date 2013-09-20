@@ -8,4 +8,11 @@ describe ProgramsController do
     it {should route(:delete, '/programs/1').to :action => :destroy, :id => 1}
     it {should route(:get, '/programs').to :action => :index}
   end
+
+  context 'GET index' do 
+    before {get :index}
+
+    it {should render_template :index}
+  end
+
 end
