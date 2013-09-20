@@ -53,7 +53,7 @@ describe ProgramsController do
     it {should render_template :edit}
   end
 
-  context 'put update' do 
+  context 'PUT update' do 
     let(:program) {FactoryGirl.create :program}
 
     context 'with valid parameters' do 

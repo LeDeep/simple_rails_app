@@ -11,7 +11,4 @@ describe Program do
     it {should allow_mass_assignment_of :code}
     it {should ensure_length_of(:code).is_equal_to(6)}
   end
-
-
-
 end
