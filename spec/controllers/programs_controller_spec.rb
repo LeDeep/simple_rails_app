@@ -15,4 +15,35 @@ describe ProgramsController do
     it {should render_template :index}
   end
 
+  context 'GET new' do 
+    before {get :new}
+
+    it {should render_template :new}
+  end
+
+  context 'POST create' do 
+    context 'with valid parameters' do 
+      let(:valid_attributes) {{:title => "New Program", :subtitle => "Program Number 1", :code => "Ruby.new"}}
+      let(:valid_parameters) {{:program => valid_attributes}}
+      
+      it 'creates a new program' do 
+        expect {post :create, valid_parameters}.to change(Program, :count).by(1)
+      end
+
+      before {post :create, valid_parameters}
+
+      it {should redirect_to programs_path}
+    end
+
+    context 'with invalid parameters' do 
+      let(:invalid_attributes) {{:title => '', :subtitle => '', :code => ''}}
+      let(:invalid_parameters) {{:program => invalid_attributes}}
+
+      before {post :create, invalid_parameters}
+
+      it {should render_template :new}
+    end
+  end
+
+
 end
