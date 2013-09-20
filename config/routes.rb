@@ -1,4 +1,8 @@
 SimpleRailsApp::Application.routes.draw do
+  resources :programs, only: [:new, :create, :index, :edit, :destroy]
+
+  root :to => 'programs#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
