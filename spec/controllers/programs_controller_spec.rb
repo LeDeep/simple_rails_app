@@ -24,7 +24,7 @@ describe ProgramsController do
 
   context 'POST create' do 
     context 'with valid parameters' do 
-      let(:valid_attributes) {{:title => "New Program", :subtitle => "Program Number 1", :code => "Ruby"}}
+      let(:valid_attributes) {{:title => "New Program", :subtitle => "Program Number 1", :code => "RORTDD"}}
       let(:valid_parameters) {{:program => valid_attributes}}
       
       it 'creates a new program' do 
@@ -57,7 +57,7 @@ describe ProgramsController do
     let(:program) {FactoryGirl.create :program}
 
     context 'with valid parameters' do 
-      let(:valid_attributes) {{:title => "New Program", :subtitle => "Program Number 1", :code => "Ruby"}}
+      let(:valid_attributes) {{:title => "New Program", :subtitle => "Program Number 1", :code => "RORTDD"}}
       let(:valid_parameters) {{:id => program.id, :program => valid_attributes}}
 
       before {put :update, valid_parameters}
