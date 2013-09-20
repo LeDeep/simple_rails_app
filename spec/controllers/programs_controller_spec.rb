@@ -79,5 +79,15 @@ describe ProgramsController do
     end
   end
 
+  context 'DELETE destroy' do 
+    it 'destroys a program' do 
+      program = FactoryGirl.create :program
+      expect {delete :destroy, {:id => program.id}}.to change(Program, :count).by(-1)
+    end
 
+    let(:program) {FactoryGirl.create :program}
+    before {delete :destroy, {:id => program.id}}
+
+    it {should redirect_to programs_path}
+  end
 end

@@ -10,7 +10,6 @@ class ProgramsController < ApplicationController
 
   def create
     @program = Program.new(params[:program])
-
     if @program.save
       redirect_to programs_path
     else
@@ -24,7 +23,6 @@ class ProgramsController < ApplicationController
 
   def update
     @program = Program.find(params[:id])
-
     if @program.update_attributes(:id => params[:id])
       redirect_to programs_path
     else
@@ -32,4 +30,9 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def destroy
+    @program = Program.find(params[:id])
+    @program.destroy
+    redirect_to programs_path
+  end
 end
